@@ -30,7 +30,8 @@ function Player() {
 
     const movePrev = () => {
         if (prev.length > 0) {
-            const current = prev.pop();
+            const current = prev[prev.length - 1];
+            prev.pop();
             next.unshift(data);
             navigate('/player/' + current.id, {
                 state: {
@@ -44,7 +45,8 @@ function Player() {
 
     const moveNext = () => {
         if (next.length > 0) {
-            const current = next.shift();
+            const current = next[0];
+            next.shift();
             prev.push(data);
             navigate('/player/' + current.id, {
                 state: {
@@ -144,6 +146,7 @@ function Player() {
         }
     }
 
+    if (!data) return navigate("/");
     return (
         <div className="container fadein" id="dark-container">
             <div id="player-area">

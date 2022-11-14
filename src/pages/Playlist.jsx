@@ -130,7 +130,7 @@ const Playlist = () => {
                 </div>
             }
 
-            {modifyModalBool && (
+            {modifyModalBool && playlistInfo.clientId === localStorage.getItem("clientId") && (
                 <Modal leftText="취소" leftEvent={() => setModifyModalBool(false)}
                        rightText="변경" rightEvent={changePlaylistTitle}>
                     <S.ModalTitle>재생목록 이름 변경</S.ModalTitle>
