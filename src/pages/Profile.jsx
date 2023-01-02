@@ -12,6 +12,7 @@ const Profile = ({userInfo}) => {
         "jupock",
         "panchi",
         "segyun",
+        "ifari"
     ]
 
     if (!userInfo) window.location.href = "/";

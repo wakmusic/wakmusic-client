@@ -46,7 +46,7 @@ class Main extends React.Component {
                             <div id="description-text">언제 어디서나, 왁타버스의 고퀄리티 음원들을 즐길 수 있다</div>
                             <div id="title-text">왁타버스 뮤직<br/>애플리케이션 출시!</div>
                             <div className="btn-wrapper">
-                                <a href="https://apps.apple.com/app/billboardoo/id1641642735" target="_blank"
+                                <a href="https://apps.apple.com/kr/app/id1641642735" target="_blank"
                                    rel="noreferrer">
                                     <div className="app-btn">
                                         <svg width="113" height="32" viewBox="0 0 113 32" fill="none"

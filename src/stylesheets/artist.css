@@ -724,9 +724,15 @@
     background: #00F3F3;
 }
 
-.special {
-    font-size: 14px;
+.special2 {
+    font-size: 13px;
     font-weight: 500;
+    padding: 8px 10px;
+}
+
+.special {
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .loading-dark {
