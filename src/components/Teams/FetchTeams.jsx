@@ -11,20 +11,36 @@ const FetchTeams = () => {
         })
     }, []);
 
+    const getMemberElement = (g, item, index) => {
+        return (
+            <div className="team-item" key={index}>
+                <div
+                    className={g.includes('special') ? `${g} team-name` : "team-name"}>{item.name}</div>
+                {item.role &&
+                    <div className="team-role" id={item.role === "팀장" ? "team-manager" : null}>
+                        {item.role}
+                    </div>}
+            </div>
+        )
+    }
+
     const getTeamMember = (g) => {
         let team = [];
+
         teamList.forEach((item, index) => {
             if (item.team === g) {
-                team.push(
-                    <div className="team-item" key={index}>
-                        <div
-                            className={g === "special" || g === "news" ? "special team-name" : "team-name"}>{item.name}</div>
-                        {item.role === "lyrics" || item.role === "news" ? null :
-                            <div className="team-role" id={item.role === "팀장" ? "team-manager" : null}>
-                                {item.role}
-                            </div>}
-                    </div>
-                );
+                if (g.includes('special')) {
+                    const newItems = item.name.split(", ");
+                    newItems.forEach((it, idx) => {
+                        let newItem = {
+                            name: it,
+                            role: null
+                        };
+                        team.push(getMemberElement(g, newItem, idx))
+                    });
+                } else {
+                    team.push(getMemberElement(g, item, index))
+                }
             }
         })
         return team;
@@ -35,11 +51,8 @@ const FetchTeams = () => {
         let group = {
             "website": "웹사이트",
             "weekly": "주간 왁뮤차트",
-            "ios": "iOS 앱",
-            "android": "안드로이드 앱",
-            "project_w": "프로젝트 W(COMING SOON)",
-            "special": "Special Thanks",
-            "news": ""
+            "app": "앱",
+            "special": "Special Thanks"
         }
         let previous;
 
